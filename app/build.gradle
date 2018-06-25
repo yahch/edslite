@@ -3,21 +3,20 @@ apply plugin: 'com.android.application'
 android {
 
     compileSdkVersion 26
-    buildToolsVersion "26.0.3"
 
     defaultConfig {
         applicationId "com.sovworks.eds.android"
         minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 221
-        versionName "2.0.0.221"
+        targetSdkVersion 23
+        versionCode 224
+        versionName "2.0.0.224"
         multiDexEnabled true
 
 
         ndk {
             // Specifies the ABI configurations of your native
             // libraries Gradle should build and package with your APK.
-            abiFilters 'x86', 'armeabi', 'armeabi-v7a', 'mips'
+            abiFilters 'x86', 'armeabi-v7a'
         }
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -122,8 +121,8 @@ android {
 dependencies {
     implementation 'com.drewnoakes:metadata-extractor:2.9.1'
     implementation 'com.android.support:design:26.1.0'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
 
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     // If you want to bind to Android-specific lifecycles
@@ -134,5 +133,8 @@ dependencies {
 }
 
 
-//apply from: 'build-full.gradle'
-//apply from: 'build-local.gradle'
+apply from: 'build-full.gradle'
+
+if (file('build-local').exists()) {
+	apply from: 'build-local.gradle'
+}
