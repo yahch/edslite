@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.sovworks.eds.android"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 224
         versionName "2.0.0.224"
         multiDexEnabled true
@@ -16,7 +16,7 @@ android {
         ndk {
             // Specifies the ABI configurations of your native
             // libraries Gradle should build and package with your APK.
-            abiFilters 'x86', 'armeabi-v7a'
+            abiFilters 'x86', 'armeabi-v7a','arm64-v8a'
         }
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
